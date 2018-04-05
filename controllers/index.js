@@ -20,60 +20,28 @@ exports.getPersonalityInsight = (req, res, next) => {
       },
       (err, watsonData) => {
         if (err) {
-          name = 'Kenny error';
-
-          console.log(name);
-          res.send(name);
-          next(err);
+            console.log('OMG YOU KILLED KENNY');
+            name = 'OMG YOU KILLED KENNY'; 
+            video = 'https://www.youtube.com/embed/MRKuLB8Oq_k'; 
+            background = '../images/kenny.png'; 
+            res.render(`main.ejs`, { name: name, video: video, background: background, error: err });
+            next(err);
         } else {
-          const charactersObject = {
-            Cartman: 0.9,
-            Chef: 0.8,
-            MrGarrison: 0.7,
-            Kyle: 0.6,
-            Wendy: 0.4,
-            MrHankey: 0.3,
-            Kenny: 0,
-          };
           const number = watsonData.personality[2].percentile;
           let name = '';
-          console.log(number);
-
-          if (number >= 0.9) name = 'Cartman';
-          else if (number >= 0.8) name = 'Chef';
-          else if (number >= 0.7) name = 'Mr Garrison';
-          else if (number >= 0.55) name = 'Kyle';
-          else if (number >= 0.35) name = 'Wendy';
-          else if (number >= 0.2) name = 'Mr Hankey';
-          else if (number >= 0.0) name = 'Kenny';
-          console.log(name);
-
-          res.render(`kenny.ejs`, { name: name }); //need to use view engine to render anything. ejs. takes second argument too
+          if (number >= 0.9) { name = 'Cartman', video = 'https://www.youtube.com/embed/bqlplW3iYB0', background = '../images/cartman.png' }
+          else if (number >= 0.8) { name = 'Chef', video = 'https://www.youtube.com/embed/dpqShViVL_Y', background = '../images/chef.png' }
+          else if (number >= 0.7) { name = 'Mr Garrison', video = 'https://www.youtube.com/embed/9a_3wQHcm_Y', background = '../images/mrgarrison.png' }
+          else if (number >= 0.55) { name = 'Kyle', video = 'https://www.youtube.com/embed/zkcNLtn2gtk', background = '../images/kyle.png' } // https://www.youtube.com/watch?v=w3EfCyi2vmY
+          else if (number >= 0.35) { name = 'Wendy', video = 'https://www.youtube.com/embed/ahg3lwjrRtA', background = '../images/wendy.jpeg' }
+          else if (number >= 0.2) { name = 'Mr Hankey', video = 'https://www.youtube.com/embed/21EA2F3Y8Lk', background = '../images/mrHankey.jpg' }
+          else if (number >= 0.0) { name = 'Kenny', video = 'https://www.youtube.com/embed/qYUl9Mzq3BE', background = '../images/kenny.png' }; // , video: 'https://www.youtube.com/watch?v=qYUl9Mzq3BE' 
+          res.render(`main.ejs`, { name: name, video: video, background: background }); //need to use view engine to render anything. ejs. takes second argument too
         }
       }
     );
   });
 };
-
-// const getCharacter = (number) => {
-//   const charactersObject = {
-//     Cartman: 0.9,
-//     Chef: 0.8,
-//     MrGarrison: 0.7,
-//     Kyle: 0.6,
-//     Wendy: 0.4,
-//     MrHankey: 0.3,
-//   };
-
-//   getPersonalityInsight(req, res, next)
-//     .then(data => JSON.parse(data).personality[2].percentile)
-//     .then(number => {});
-//   //     if (err) return cb(err);
-//   //     // console.log(JSON.parse(data).personality[2].percentile);
-//   //     const result = JSON.parse(data).personality[2].percentile;
-//   //   });
-// };
-// getCharacter({ params: 'RomyLucy' });
 
 // fs.readdir(`../southParkCharacterData`, (err, arrayOfFileNames)=> {
 //     arrayOfFileNames.forEach((nameOfFile) => {
