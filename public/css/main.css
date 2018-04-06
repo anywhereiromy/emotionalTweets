@@ -57,7 +57,7 @@ a:active {
 .Wendy {
     background-image: url('../images/wendy.png');
     background-size: cover;
-    height: 100vh;
+    height: 1000px;
     width: 100%; 
     color: white;
 }
@@ -74,7 +74,7 @@ a:active {
 .Chef {
     background-image: url('../images/chef.png');
     background-size: cover;
-    height: 100vh;
+    height: 1000px;
     width: 100%; 
     color: white;
 }
@@ -99,7 +99,7 @@ a:active {
     background-color: #B469AB;
     background-image: url('../images/mrgarrison.png');
     background-size: cover;
-    height: 100vh;
+    height: 1000px;
     width: 100%; 
     color: white;
     
@@ -108,13 +108,17 @@ a:active {
 .MrHankey {
     background-image: url('../images/mrHankey.png');
     background-size: cover;
-    height: 100vh;
+    height: 1000px;
     width: 100%; 
     color: white;
 }
 
 .OMGYOUKILLEDKENNY {
-
+    background-image: url('../images/dead_kenny.gif');
+    background-size: cover;
+    height: 1000px;
+    width: 100%; 
+    color: white;
 }
 
 form {
