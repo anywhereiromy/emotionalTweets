@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { getPersonalityInsight } = require('../controllers');
+const { getPersonalityInsight, getHomePage } = require('../controllers');
 
-router.get('/');
+router.get('/', getHomePage);
 router.get('/:handle', getPersonalityInsight);
 
 
