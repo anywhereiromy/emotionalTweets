@@ -1,15 +1,21 @@
 
 const https = require('https');
 const request = require('superagent');
-const keys = require('../config/config.js');
 const Twit = require('twit');
 const fs = require('fs');
 const express = require('express')();
 
+if (process.env.consumer_key === undefined) {
+    const keys = require('../config/config.js');
+    process.env.consumer_key = `${keys.consumerKey}`;
+    process.env.consumer_secret = `${keys.consumerSecret}`;
+    process.env.app_only_auth = `${keys.appOnlyAuth}`;
+}
+
 let T = new Twit({
-    consumer_key:         `${keys.consumerKey}`,
-    consumer_secret:      `${keys.consumerSecret}`,
-    app_only_auth:        `${keys.appOnlyAuth}`
+    consumer_key:         process.env.consumer_key,
+    consumer_secret:     process.env.consumer_secret,
+    app_only_auth:        process.env.app_only_auth
 })
 
 exports.getTweets = (handle, cb) => {
