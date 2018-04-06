@@ -1,11 +1,17 @@
 const PersonalityInsights = require('watson-developer-cloud/personality-insights/v3');
-const { username, password } = require('../config');
+// const { username, password } = require('../config');
 const fs = require('fs');
 const { getTweets } = require('./tweet');
 
+if (process.env.username === undefined) {
+    const { username, password } = require('../config');
+    process.env.username = `${username}`;
+    process.env.password = `${password}`;
+}
+
 const pi = new PersonalityInsights({
-  username,
-  password,
+    username: process.env.username,
+    password: process.env.password,
   version_date: '2017-12-12',
 });
 
