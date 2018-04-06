@@ -8,6 +8,18 @@
     src: url('./southpark.ttf') format('truetype');
  }
 
+input {
+    font-family: 'southpark';
+}
+
+.reset {
+    font-family: 'southpark';
+}
+
+.submit {
+    font-family: 'southpark';
+}
+
 body {
     font-family: 'southpark';
 }
