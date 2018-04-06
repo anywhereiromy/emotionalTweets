@@ -24,7 +24,7 @@ exports.getTweets = (handle, cb) => {
           name = 'OMG YOU KILLED KENNY'; 
           video = 'https://www.youtube.com/embed/MRKuLB8Oq_k'; 
           background = 'https://www.youtube.com/embed/MRKuLB8Oq_k'; 
-          res.render(`main.ejs`, { name: name, video: video, error: err });
+          cb('not');
         } else {
             const tweetsArray = [];
             let tweets = data.map(obj => obj.text);

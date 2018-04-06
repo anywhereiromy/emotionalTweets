@@ -8,7 +8,7 @@
     </title>
 </head>
 
-<body class=<%= name.replace(' ', '') %>
+<body class=<%= name.replace(/\s/g, '') %>
   
 
         <%- include('./partials/nav.ejs') %>
