@@ -11,12 +11,13 @@
     <h1>Character Are You?</h1>
 
     <div class="container">
-        <form action="https://emotionalsouthpark.herokuapp.com/api/RomyLucy" method="get">
+        <form id="myform" name="myform" action="http://emotionalsouthpark.herokuapp.com/api/person" method="get">
             <label for="GET-name" class="name">@</label>
-            <input id="GET-name" type="text" placeholder="enter your Twitter handle" name="name">
+            <input name="handle" id="GET-name handle" type="text" placeholder="enter your Twitter handle" name="name">
             <input id="reset" type="reset" value="Reset">
-            <input id="GET-name" type="submit" value="Send" > 
-            <!-- onclick="getPersonalityInsight()" -->
+            <input type="submit" value="Submit" > 
+             <!-- onclick="getPersonalityInsight()"  emotionalsouthpark.herokuapp.com/ -->
+            
         </form>
     </div>
 </body>
