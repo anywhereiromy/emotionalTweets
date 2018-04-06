@@ -1,0 +1,13 @@
+body {
+    background-image: url('../images/wendy.png');
+    background-size: cover;
+} 
+
+.iframeContainer {
+    text-align: center;
+}
+
+.characterName {
+    text-align: center;
+    color: aliceblue;
+}
